@@ -13,6 +13,7 @@
 		2F2BEDF71EB5326500DEAA62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BEDF51EB5326500DEAA62 /* Main.storyboard */; };
 		2F2BEE021EB5326500DEAA62 /* TemplateMacOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2BEE011EB5326500DEAA62 /* TemplateMacOSTests.swift */; };
 		2F2BEE0D1EB5326500DEAA62 /* TemplateMacOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2BEE0C1EB5326500DEAA62 /* TemplateMacOSUITests.swift */; };
+		2F2BEE1B1EB89A5B00DEAA62 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2BEE1A1EB89A5B00DEAA62 /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		2F2BEE081EB5326500DEAA62 /* TemplateMacOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TemplateMacOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F2BEE0C1EB5326500DEAA62 /* TemplateMacOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateMacOSUITests.swift; sourceTree = "<group>"; };
 		2F2BEE0E1EB5326500DEAA62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F2BEE1A1EB89A5B00DEAA62 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				2F2BEDEF1EB5326500DEAA62 /* AppDelegate.swift */,
 				2F2BEDF11EB5326500DEAA62 /* ViewController.swift */,
+				2F2BEE1A1EB89A5B00DEAA62 /* DrawView.swift */,
 				2F2BEDF31EB5326500DEAA62 /* Assets.xcassets */,
 				2F2BEDF51EB5326500DEAA62 /* Main.storyboard */,
 				2F2BEDF81EB5326500DEAA62 /* Info.plist */,
@@ -260,6 +263,7 @@
 			files = (
 				2F2BEDF21EB5326500DEAA62 /* ViewController.swift in Sources */,
 				2F2BEDF01EB5326500DEAA62 /* AppDelegate.swift in Sources */,
+				2F2BEE1B1EB89A5B00DEAA62 /* DrawView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
