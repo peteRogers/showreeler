@@ -46,7 +46,7 @@ class InfoViewController: NSViewController {
         let titA : [String : Any] = [NSFontAttributeName : font!, NSForegroundColorAttributeName : NSColor.white]
             //let str = try NSMutableAttributedString(data: ("I'm a normal text and <b>this is my bold part . </b>And I'm again in the normal text".data(using: String.Encoding.unicode, allowLossyConversion: true)!), options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes:nil )
             let str = NSMutableAttributedString(string: "\(item.title)", attributes: titA)
-            print(item.title)
+            //print(item.title)
             var fontB:CGFloat = 18.0
             if(index == 2){
                 fontB = 30
@@ -63,7 +63,7 @@ class InfoViewController: NSViewController {
                 let font = NSFont(name: "Helvetica Neue Bold Italic", size: fontC)
                 let timeA : [String : Any] = [NSFontAttributeName : font!, NSForegroundColorAttributeName : NSColor.white]
                 let formatter = DateFormatter()
-                formatter.dateFormat = "hh:mm:ss"
+                formatter.dateFormat = "HH:mm:ss"
                 let result = formatter.string(from: cTime)
             let strTime = NSAttributedString(string:result, attributes:timeA)
             str.append(strTime)

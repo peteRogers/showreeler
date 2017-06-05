@@ -7,38 +7,52 @@
 //
 
 import Cocoa
-import GPUImage
+//import GPUImage
+import CSVImporter
 import AVKit
 import AVFoundation
 
 class ViewController: NSViewController {
    
     
-   
-    
-    @IBOutlet weak var render: RenderView!
-   
-    var movie:MovieInput!
+      // @IBOutlet weak var render: RenderView!
+    //var moviePosition = 0
+    //var movie:MovieInput!
+    var playingTimer: Timer!
     var player:AVPlayer!
     var infoWindowController: NSWindowController!
     var infoVC:InfoViewController!
-    var displayLink: CVDisplayLink?
+    //var displayLink: CVDisplayLink?
     
     var movieArray: [MovieData]=[]
     public static var animationQueue: DispatchQueue = DispatchQueue.main
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        getCSV()
+        /**
         let mov = MovieData(fileName:"Clone_valley_timelapse.mov", title:"Liboni Munnings", author:"Clone Valley Timelapse", millis: 40000)
         let mov1 = MovieData(fileName:"ZZZ_Branded_Content_02.mp4", title:"Liboni Munnings", author:"ZZZ Branded Content", millis: 81000)
         let mov2 = MovieData(fileName:"ZZZ_Documentary_02.mp4", title:"Liboni Munnings", author:"ZZZ Documentary", millis: 62000)
         let mov3 = MovieData(fileName:"Sequence2.mp4", title:"Peter Rogers", author:"Place Holder Testing", millis: 11000)
         let mov4 = MovieData(fileName:"Sequence1.mp4", title:"Peter Rogers", author:"Place Holder Sound Test", millis: 5000)
+        let mov6 = MovieData(fileName:"Clone_valley_timelapse.mov", title:"Liboni Munnings", author:"Clone Valley Timelapse", millis: 40000)
+        let mov7 = MovieData(fileName:"ZZZ_Branded_Content_02.mp4", title:"Liboni Munnings", author:"ZZZ Branded Content", millis: 81000)
+        let mov8 = MovieData(fileName:"ZZZ_Documentary_02.mp4", title:"Liboni Munnings", author:"ZZZ Documentary", millis: 62000)
+        let mov9 = MovieData(fileName:"Sequence2.mp4", title:"Peter Rogers", author:"Place Holder Testing", millis: 11000)
+        let mov10 = MovieData(fileName:"Sequence1.mp4", title:"Peter Rogers", author:"Place Holder Sound Test", millis: 5000)
         movieArray.append(mov)
         movieArray.append(mov1)
         movieArray.append(mov2)
         movieArray.append(mov3)
-        movieArray.append(mov4)
+        movieArray.append(mov6)
+        movieArray.append(mov7)
+        movieArray.append(mov8)
+        movieArray.append(mov9)
+        movieArray.append(mov10)
+ **/
         let mainStoryboard = NSStoryboard.init(name: "Main", bundle: nil)
         infoWindowController = mainStoryboard.instantiateController(withIdentifier: "infoWindow") as! NSWindowController
         infoWindowController.showWindow(self)
@@ -52,7 +66,7 @@ class ViewController: NSViewController {
         infoVC.view.backgroundColor(color: NSColor.black)
         infoVC.view.frame = ff
         // print(t.getText(input: "hello you freaks."))
-        self.createDisplayLink()
+        
         var f = self.view.frame
         f.size.width = 1280
         f.size.height = 800
@@ -72,13 +86,12 @@ class ViewController: NSViewController {
             return aEvent
         }
 
-        self.setMoviePlay()
         
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear() {
         setFullScreen()
-        self.nextMovie()
+       // self.nextMovie()
     }
     func setFullScreen(){
         /**
@@ -104,40 +117,49 @@ class ViewController: NSViewController {
 
     }
     
-    func setSize(){
-        
+    ////////
+    
+//MARK: CSV Functions
+    
+    func getCSV(){
+       // print("foof")
+        let home = FileManager.default.homeDirectoryForCurrentUser
+        let folder = home.appendingPathComponent("Desktop/movieMeta.csv")
+        let sta = folder.absoluteString.endIndex(of:"file://")
+        let f = folder.absoluteString.substring(from: sta!)
+        let importer = CSVImporter<MovieData>(path: f)
+        importer.startImportingRecords { recordValues -> MovieData in
+            print(recordValues[0])
+            return MovieData(fileName: recordValues[0], title: recordValues[1], author: recordValues[2], millis: Float(recordValues[3])!)
+            
+            }.onFinish { importedRecords in
+               
+                
+                self.movieArray = importedRecords
+                /**
+                for _ in 0...self.moviePosition-1{
+                    self.movieArray.rearrange(from: self.movieArray.count-1, to: 0)
+                }
+**/
+                //print(self.movieArray.count)
+                self.setMoviePlay()
+                //self.createDisplayLink()
+
+        }
     }
     
+    
+    
+    
+    
+    
     func setMoviePlay(){
-       /** do {
-            let home = FileManager.default.homeDirectoryForCurrentUser
-            let folder = home.appendingPathComponent("Desktop/")
-            //let bundleURL = Bundle.main.resourceURL!
-            //Bundle.main.path(forResource: "soundB", ofType:"mp3")
-            let movieURL = URL(string:"sequence1.mp4", relativeTo:folder)!
-            movie = try MovieInput(url:movieURL, playAtActualSpeed:true)
-           // print(movie.videoFrame?.width)
-            let rect = CGRect(x: 0, y: 0, width: 1280, height: 1080)
-            //render.frame = rect
-            let scale:Float =  Float(render.frame.width/rect.size.width)
-            print(render.frame.width)
-            print(scale)
-            render.frame = rect
-            //movie.assetReader.asset.
-            //filter = SaturationAdjustment()
-            
-            movie --> render
-            movie.start()
-        } catch {
-            fatalError("Could not initialize rendering pipeline: \(error)")
-        }
- */
         let home = FileManager.default.homeDirectoryForCurrentUser
-        let folder = home.appendingPathComponent("Desktop/")
+        let folder = home.appendingPathComponent("Desktop/showVideos/")
         //let bundleURL = Bundle.main.resourceURL!
         //Bundle.main.path(forResource: "soundB", ofType:"mp3")
         print(folder)
-        let movieURL = URL(string:"sequence1.mp4", relativeTo:folder)!
+        let movieURL = URL(string:"sequence2.mp4", relativeTo:folder)!
         player = AVPlayer(url: movieURL)
        // player.
         let playerLayer = AVPlayerLayer(player: player)
@@ -147,33 +169,41 @@ class ViewController: NSViewController {
         self.view.wantsLayer = true
         self.view.layer?.addSublayer(playerLayer)
         player.play()
+        playingTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(checkIfFinished), userInfo: nil, repeats: true)
+        
     }
     
     func nextMovie(){
+        /**
         print(self.view.frame.origin.x)
         print(self.view.frame.origin.y)
         print(self.view.frame.size.width)
         print(self.view.frame.size.height)
+        **/
+        //print("eeekk")
         infoVC.makeInfoPanel(array: movieArray)
+        //moviePosition = moviePosition + 1
+        //defaults.set(moviePosition, forKey: "pos")
+       // print(moviePosition)
         movieArray.rearrange(from: movieArray.count-1, to: 0)
-        self.view.backgroundColor(color: NSColor.red)
+        self.view.backgroundColor(color: NSColor.black)
         self.view.layer?.sublayers?.removeAll(keepingCapacity: true)
         let home = FileManager.default.homeDirectoryForCurrentUser
-        let folder = home.appendingPathComponent("Desktop/")
-        
+        let folder = home.appendingPathComponent("Desktop/showVideos/")
+        //player.pause()
+        // print(folder.absoluteString)
+       
         let movieURL = URL(string:movieArray[0].fileName, relativeTo:folder)!
         player = AVPlayer(url: movieURL)
         let playerLayer = AVPlayerLayer(player: player)
-        print(playerLayer.videoRect.size.width)
         playerLayer.frame = self.view.frame
-        //playerLayer.frame.origin.y = -50
-        print(playerLayer.videoRect.size.width)
-
         self.view.wantsLayer = true
         self.view.layer?.addSublayer(playerLayer)
       
 
         player.play()
+        playingTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(checkIfFinished), userInfo: nil, repeats: true)
+                //self.createDisplayLink()
     }
 
     override var representedObject: Any? {
@@ -190,8 +220,21 @@ class ViewController: NSViewController {
         }
         
     }
-
     
+    func checkIfFinished(){
+        print("doing check if finished")
+        print(self.player.timeControlStatus.rawValue)
+        if(self.player.timeControlStatus.rawValue != 0){
+            
+        }else{
+            print("stopped")
+            self.nextMovie()
+            playingTimer.invalidate()
+            
+        }
+
+    }
+    /**
     private func createDisplayLink() {
         let error = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
         guard let dLink = displayLink, kCVReturnSuccess == error else {
@@ -204,11 +247,13 @@ class ViewController: NSViewController {
         CVDisplayLinkSetOutputHandler(dLink) { (_, nowTime, outputTime, _, _) in
             let fps = (outputTime.pointee.rateScalar * Double(outputTime.pointee.videoTimeScale) / Double(outputTime.pointee.videoRefreshPeriod))
             ViewController.animationQueue.async {
-                if(self.player.rate != 0){
+                if(self.player.rate != 0  ){
                     
                 }else{
                     print("stopped")
-                    self.nextMovie()
+                                        self.nextMovie()
+                    
+
                 }
                 //print(self.player.status)
                 //print("foof")
@@ -229,7 +274,7 @@ class ViewController: NSViewController {
         CVDisplayLinkStart(dLink)
     }
 
-
+**/
 
 }
 
@@ -248,3 +293,32 @@ struct MovieData {
     let millis:Float
     // structure definition goes here
 }
+
+extension String {
+    func index(of string: String, options: CompareOptions = .literal) -> Index? {
+        return range(of: string, options: options)?.lowerBound
+    }
+    func endIndex(of string: String, options: CompareOptions = .literal) -> Index? {
+        return range(of: string, options: options)?.upperBound
+    }
+    func indexes(of string: String, options: CompareOptions = .literal) -> [Index] {
+        var result: [Index] = []
+        var start = startIndex
+        while let range = range(of: string, options: options, range: start..<endIndex) {
+            result.append(range.lowerBound)
+            start = range.upperBound
+        }
+        return result
+    }
+    func ranges(of string: String, options: CompareOptions = .literal) -> [Range<Index>] {
+        var result: [Range<Index>] = []
+        var start = startIndex
+        while let range = range(of: string, options: options, range: start..<endIndex) {
+            result.append(range)
+            start = range.upperBound
+        }
+        return result
+    }
+}
+
+

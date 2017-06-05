@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F2337C91EDE2F0200DA1390 /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F2337B91EDE2DDF00DA1390 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F2BEDF01EB5326500DEAA62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2BEDEF1EB5326500DEAA62 /* AppDelegate.swift */; };
 		2F2BEDF21EB5326500DEAA62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2BEDF11EB5326500DEAA62 /* ViewController.swift */; };
 		2F2BEDF41EB5326500DEAA62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BEDF31EB5326500DEAA62 /* Assets.xcassets */; };
@@ -15,38 +14,16 @@
 		2F2BEE021EB5326500DEAA62 /* TemplateMacOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2BEE011EB5326500DEAA62 /* TemplateMacOSTests.swift */; };
 		2F2BEE0D1EB5326500DEAA62 /* TemplateMacOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2BEE0C1EB5326500DEAA62 /* TemplateMacOSUITests.swift */; };
 		2F2BEE1B1EB89A5B00DEAA62 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2BEE1A1EB89A5B00DEAA62 /* DrawView.swift */; };
+		2FC333681EE1698B00188AAF /* CSVImporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC333661EE1698B00188AAF /* CSVImporter.framework */; };
+		2FC333691EE1698B00188AAF /* HandySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC333671EE1698B00188AAF /* HandySwift.framework */; };
+		2FC3336A1EE16B6E00188AAF /* CSVImporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC333661EE1698B00188AAF /* CSVImporter.framework */; };
+		2FC3336B1EE16B6E00188AAF /* CSVImporter.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2FC333661EE1698B00188AAF /* CSVImporter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2FC3336C1EE16B6E00188AAF /* HandySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC333671EE1698B00188AAF /* HandySwift.framework */; };
+		2FC3336D1EE16B6E00188AAF /* HandySwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2FC333671EE1698B00188AAF /* HandySwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FCBC1701EDDBF6300C007AA /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCBC16F1EDDBF6300C007AA /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2F2337B81EDE2DDF00DA1390 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2F2337B11EDE2DDF00DA1390 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC6E7CAB1C39A9D8006DF678;
-			remoteInfo = GPUImage_macOS;
-		};
-		2F2337BA1EDE2DDF00DA1390 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2F2337B11EDE2DDF00DA1390 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC6E7CB51C39A9D8006DF678;
-			remoteInfo = GPUImageTests_macOS;
-		};
-		2F2337BC1EDE2DDF00DA1390 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2F2337B11EDE2DDF00DA1390 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC9E34E91E524A2200B8604F;
-			remoteInfo = GPUImage_iOS;
-		};
-		2F2337BE1EDE2DDF00DA1390 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2F2337B11EDE2DDF00DA1390 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC9E34F11E524A2200B8604F;
-			remoteInfo = GPUImageTests_iOS;
-		};
 		2F2BEDFE1EB5326500DEAA62 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2F2BEDE41EB5326500DEAA62 /* Project object */;
@@ -70,14 +47,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2F2337C91EDE2F0200DA1390 /* GPUImage.framework in CopyFiles */,
+				2FC3336B1EE16B6E00188AAF /* CSVImporter.framework in CopyFiles */,
+				2FC3336D1EE16B6E00188AAF /* HandySwift.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2F2337B11EDE2DDF00DA1390 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		2F2BEDEC1EB5326500DEAA62 /* TemplateMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemplateMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F2BEDEF1EB5326500DEAA62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F2BEDF11EB5326500DEAA62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +68,8 @@
 		2F2BEE0C1EB5326500DEAA62 /* TemplateMacOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateMacOSUITests.swift; sourceTree = "<group>"; };
 		2F2BEE0E1EB5326500DEAA62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F2BEE1A1EB89A5B00DEAA62 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		2FC333661EE1698B00188AAF /* CSVImporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CSVImporter.framework; sourceTree = "<group>"; };
+		2FC333671EE1698B00188AAF /* HandySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HandySwift.framework; sourceTree = "<group>"; };
 		2FCBC16F1EDDBF6300C007AA /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = ../InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +78,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FC333681EE1698B00188AAF /* CSVImporter.framework in Frameworks */,
+				2FC3336C1EE16B6E00188AAF /* HandySwift.framework in Frameworks */,
+				2FC3336A1EE16B6E00188AAF /* CSVImporter.framework in Frameworks */,
+				2FC333691EE1698B00188AAF /* HandySwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,21 +102,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2F2337B21EDE2DDF00DA1390 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2F2337B91EDE2DDF00DA1390 /* GPUImage.framework */,
-				2F2337BB1EDE2DDF00DA1390 /* GPUImageTests_macOS.xctest */,
-				2F2337BD1EDE2DDF00DA1390 /* GPUImage.framework */,
-				2F2337BF1EDE2DDF00DA1390 /* GPUImageTests_iOS.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		2F2BEDE31EB5326500DEAA62 = {
 			isa = PBXGroup;
 			children = (
-				2F2337B11EDE2DDF00DA1390 /* GPUImage.xcodeproj */,
 				2F2BEDEE1EB5326500DEAA62 /* TemplateMacOS */,
 				2F2BEE001EB5326500DEAA62 /* TemplateMacOSTests */,
 				2F2BEE0B1EB5326500DEAA62 /* TemplateMacOSUITests */,
@@ -155,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				2FCBC16F1EDDBF6300C007AA /* InfoViewController.swift */,
+				2FC333661EE1698B00188AAF /* CSVImporter.framework */,
+				2FC333671EE1698B00188AAF /* HandySwift.framework */,
 				2F2BEDEF1EB5326500DEAA62 /* AppDelegate.swift */,
 				2F2BEDF11EB5326500DEAA62 /* ViewController.swift */,
 				2F2BEE1A1EB89A5B00DEAA62 /* DrawView.swift */,
@@ -280,12 +253,6 @@
 			mainGroup = 2F2BEDE31EB5326500DEAA62;
 			productRefGroup = 2F2BEDED1EB5326500DEAA62 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2F2337B21EDE2DDF00DA1390 /* Products */;
-					ProjectRef = 2F2337B11EDE2DDF00DA1390 /* GPUImage.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				2F2BEDEB1EB5326500DEAA62 /* TemplateMacOS */,
@@ -294,37 +261,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2F2337B91EDE2DDF00DA1390 /* GPUImage.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = GPUImage.framework;
-			remoteRef = 2F2337B81EDE2DDF00DA1390 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2F2337BB1EDE2DDF00DA1390 /* GPUImageTests_macOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GPUImageTests_macOS.xctest;
-			remoteRef = 2F2337BA1EDE2DDF00DA1390 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2F2337BD1EDE2DDF00DA1390 /* GPUImage.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = GPUImage.framework;
-			remoteRef = 2F2337BC1EDE2DDF00DA1390 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2F2337BF1EDE2DDF00DA1390 /* GPUImageTests_iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GPUImageTests_iOS.xctest;
-			remoteRef = 2F2337BE1EDE2DDF00DA1390 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2F2BEDEA1EB5326500DEAA62 /* Resources */ = {
@@ -505,6 +441,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4NY9EY68HK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TemplateMacOS",
+				);
 				INFOPLIST_FILE = TemplateMacOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Sprinkler.TemplateMacOS;
@@ -519,6 +459,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4NY9EY68HK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TemplateMacOS",
+				);
 				INFOPLIST_FILE = TemplateMacOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Sprinkler.TemplateMacOS;
