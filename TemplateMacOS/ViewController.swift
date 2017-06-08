@@ -11,7 +11,7 @@ import Cocoa
 import CSVImporter
 import AVKit
 import AVFoundation
-
+import Alamofire
 class ViewController: NSViewController {
    
     
@@ -22,6 +22,8 @@ class ViewController: NSViewController {
     var player:AVPlayer!
     var infoWindowController: NSWindowController!
     var infoVC:InfoViewController!
+    
+    var titleView:NSView!
     //var displayLink: CVDisplayLink?
     
     var movieArray: [MovieData]=[]
@@ -76,6 +78,9 @@ class ViewController: NSViewController {
        // render.frame = f
         
         self.view.frame = f
+        
+        
+        
         NSEvent.addLocalMonitorForEvents(matching: .keyUp) { (aEvent) -> NSEvent? in
             self.keyUp(with: aEvent)
             return aEvent
@@ -130,7 +135,7 @@ class ViewController: NSViewController {
         let importer = CSVImporter<MovieData>(path: f)
         importer.startImportingRecords { recordValues -> MovieData in
             print(recordValues[0])
-            return MovieData(fileName: recordValues[0], title: recordValues[1], author: recordValues[2], millis: Float(recordValues[3])!)
+            return MovieData(fileName: recordValues[0], title: recordValues[1], author: recordValues[2], millis: Float(recordValues[3])!, showTitle:Int(recordValues[4])!)
             
             }.onFinish { importedRecords in
                
@@ -199,10 +204,55 @@ class ViewController: NSViewController {
         playerLayer.frame = self.view.frame
         self.view.wantsLayer = true
         self.view.layer?.addSublayer(playerLayer)
-      
-
-        player.play()
-        playingTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(checkIfFinished), userInfo: nil, repeats: true)
+        
+        if(movieArray[0].showTitle == 1){
+        //start of adding title view
+        var f = self.view.frame
+        f.size.width = 1280
+        f.size.height = 800
+        f.origin.x = 0
+        f.origin.y = 0
+        //self.view.frame = f
+        // render.frame = f
+        
+        self.view.frame = f
+        titleView?.removeFromSuperview()
+        titleView = NSView(frame: f)
+        titleView.wantsLayer = true
+        titleView.layer?.backgroundColor = NSColor.black.cgColor
+        let s = NSTextField(frame: CGRect(x:50,y:200, width:f.size.width-100, height:400))
+        let font = NSFont(name: "Helvetica Neue Bold", size: 50)
+        
+        let titA : [String : Any] = [NSFontAttributeName : font!, NSForegroundColorAttributeName : NSColor.white]
+        let str = NSMutableAttributedString(string: "\(movieArray[0].title)\n\(movieArray[0].author)", attributes: titA)
+        s.backgroundColor = NSColor.black
+        s.textColor = NSColor.white
+        s.attributedStringValue = str
+        s.isBordered = false
+        
+        titleView.addSubview(s)
+        
+        self.view.addSubview(titleView, positioned: NSWindowOrderingMode.above, relativeTo: nil)
+        titleView.alphaValue = 1.0
+        NSAnimationContext.runAnimationGroup({_ in
+            //Indicate the duration of the animation
+            NSAnimationContext.current().duration = 5.0
+            //What is being animated? In this example I’m making a view transparent
+            titleView.animator().alphaValue = 0.99
+        }, completionHandler:{
+            //In here we add the code that should be triggered after the animation completes.
+            print("Animation completed")
+            self.titleView?.removeFromSuperview()
+            //self.nextMovie()
+            self.player.play()
+            self.playingTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.checkIfFinished), userInfo: nil, repeats: true)
+        })
+        
+        }else{
+            self.player.play()
+            self.playingTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.checkIfFinished), userInfo: nil, repeats: true)
+        }
+        
                 //self.createDisplayLink()
     }
 
@@ -228,12 +278,18 @@ class ViewController: NSViewController {
             
         }else{
             print("stopped")
-            self.nextMovie()
+           
             playingTimer.invalidate()
+            self.nextMovie()
+            
+          
+            
             
         }
 
     }
+    
+    
     /**
     private func createDisplayLink() {
         let error = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
@@ -291,6 +347,7 @@ struct MovieData {
     let title:String
     let author:String
     let millis:Float
+    let showTitle:Int
     // structure definition goes here
 }
 

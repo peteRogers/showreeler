@@ -21,6 +21,9 @@
 		2FC3336C1EE16B6E00188AAF /* HandySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC333671EE1698B00188AAF /* HandySwift.framework */; };
 		2FC3336D1EE16B6E00188AAF /* HandySwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2FC333671EE1698B00188AAF /* HandySwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FCBC1701EDDBF6300C007AA /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCBC16F1EDDBF6300C007AA /* InfoViewController.swift */; };
+		619403B71EE5A79900A819B6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 619403B61EE5A79900A819B6 /* Alamofire.framework */; };
+		619403B81EE5A7AC00A819B6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 619403B61EE5A79900A819B6 /* Alamofire.framework */; };
+		619403B91EE5A7AC00A819B6 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 619403B61EE5A79900A819B6 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				2FC3336B1EE16B6E00188AAF /* CSVImporter.framework in CopyFiles */,
+				619403B91EE5A7AC00A819B6 /* Alamofire.framework in CopyFiles */,
 				2FC3336D1EE16B6E00188AAF /* HandySwift.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +75,7 @@
 		2FC333661EE1698B00188AAF /* CSVImporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CSVImporter.framework; sourceTree = "<group>"; };
 		2FC333671EE1698B00188AAF /* HandySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HandySwift.framework; sourceTree = "<group>"; };
 		2FCBC16F1EDDBF6300C007AA /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = ../InfoViewController.swift; sourceTree = "<group>"; };
+		619403B61EE5A79900A819B6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +84,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FC333681EE1698B00188AAF /* CSVImporter.framework in Frameworks */,
+				619403B81EE5A7AC00A819B6 /* Alamofire.framework in Frameworks */,
 				2FC3336C1EE16B6E00188AAF /* HandySwift.framework in Frameworks */,
 				2FC3336A1EE16B6E00188AAF /* CSVImporter.framework in Frameworks */,
+				619403B71EE5A79900A819B6 /* Alamofire.framework in Frameworks */,
 				2FC333691EE1698B00188AAF /* HandySwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +136,7 @@
 				2FC333661EE1698B00188AAF /* CSVImporter.framework */,
 				2FC333671EE1698B00188AAF /* HandySwift.framework */,
 				2F2BEDEF1EB5326500DEAA62 /* AppDelegate.swift */,
+				619403B61EE5A79900A819B6 /* Alamofire.framework */,
 				2F2BEDF11EB5326500DEAA62 /* ViewController.swift */,
 				2F2BEE1A1EB89A5B00DEAA62 /* DrawView.swift */,
 				2F2BEDF31EB5326500DEAA62 /* Assets.xcassets */,
